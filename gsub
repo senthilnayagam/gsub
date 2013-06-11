@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# https://github.com/senthilnayagam/gsub
+
+def usage(s)
+    $stderr.puts(s)
+    $stderr.puts("Usage: #{File.basename($0)}: find replace")
+    exit(2)
+end
+
+
+if ARGV[0] == nil || ARGV[1] == nil
+  usage("no arguments provided")
+else
+  find = ARGV[0]
+  replace = ARGV[1]
+
+  $stdin.each_line do |line|
+    puts line.gsub(find,replace)  
+  end
+ 
+end
